@@ -1,0 +1,133 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+  background: #1b2540;
+}
+
+#canvas-container {
+  position: fixed;
+  inset: 0;
+}
+
+#panel {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  width: 340px;
+  max-width: calc(100vw - 40px);
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: rgba(20, 28, 48, 0.82);
+  backdrop-filter: blur(8px);
+  color: #eef1f8;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+#panel h1 {
+  margin: 0 0 12px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+#text-input {
+  width: 100%;
+  resize: vertical;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #3a466a;
+  background: #0f1730;
+  color: #eef1f8;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+#voice-select {
+  flex: 1;
+  min-width: 0;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #3a466a;
+  background: #0f1730;
+  color: #eef1f8;
+}
+
+#speaker-input {
+  flex: 1;
+  min-width: 0;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #3a466a;
+  background: #0f1730;
+  color: #eef1f8;
+  font-size: 13px;
+}
+
+button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #4f7cff;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #3d6af0;
+}
+
+button.secondary {
+  background: #39456a;
+}
+
+button.secondary:hover {
+  background: #465380;
+}
+
+#hint,
+#status {
+  margin: 10px 0 0;
+  font-size: 12px;
+  color: #aab3cc;
+}
+
+#status {
+  min-height: 16px;
+  color: #8fd0ff;
+}
+
+code {
+  background: #0f1730;
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+#drop-mask {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: #fff;
+  background: rgba(31, 60, 130, 0.6);
+  border: 4px dashed rgba(255, 255, 255, 0.6);
+  z-index: 10;
+}
+
+#drop-mask.active {
+  display: flex;
+}

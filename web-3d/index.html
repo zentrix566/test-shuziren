@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web 3D 数字人</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="canvas-container"></div>
+
+    <div id="panel">
+      <h1>3D 数字人</h1>
+      <textarea id="text-input" rows="3" placeholder="输入要播报的文字…">大家好，我是你的 3D 数字人主播，很高兴见到你。</textarea>
+      <div class="row">
+        <select id="voice-select" title="选择语音音色"></select>
+        <button id="speak-btn">朗读</button>
+        <button id="stop-btn" class="secondary">停止</button>
+      </div>
+      <div class="row">
+        <input id="speaker-input" type="text" placeholder="或粘贴音色 ID（覆盖上面下拉，可用全部音色）" />
+      </div>
+      <div class="row">
+        <button id="wave-btn" class="secondary">挥手打招呼</button>
+      </div>
+      <p id="hint">提示：把一个 <code>.vrm</code> 文件拖进窗口即可替换形象。</p>
+      <p id="status"></p>
+    </div>
+
+    <div id="drop-mask">松开鼠标，加载这个 .vrm 模型</div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

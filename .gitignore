@@ -1,0 +1,35 @@
+# Python 虚拟环境
+env/
+.venv/
+venv/
+
+# Python 缓存
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+
+# 构建产物
+build/
+dist/
+
+# 运行产物（生成的语音与视频统一放在 output/）
+output/
+*.mp4
+*.mp3
+*.wav
+
+# 配置与密钥
+.env
+
+# 日志
+*.log
+
+# IDE / 编辑器
+.idea/
+.vscode/
+
+# 操作系统文件
+.DS_Store
+Thumbs.db
