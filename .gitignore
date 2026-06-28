@@ -29,6 +29,7 @@ output/
 # IDE / 编辑器
 .idea/
 .vscode/
+.workbuddy/
 
 # 操作系统文件
 .DS_Store
