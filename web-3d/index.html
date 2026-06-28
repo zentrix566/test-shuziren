@@ -3,28 +3,89 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Web 3D 数字人</title>
+    <title>3D 数字人直播间</title>
     <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
+    <!-- 暖色直播间背景层 -->
+    <div id="bg">
+      <span class="bokeh b1"></span>
+      <span class="bokeh b2"></span>
+      <span class="bokeh b3"></span>
+    </div>
+
     <div id="canvas-container"></div>
 
-    <div id="panel">
-      <h1>3D 数字人</h1>
-      <textarea id="text-input" rows="3" placeholder="输入要播报的文字…">大家好，我是你的 3D 数字人主播，很高兴见到你。</textarea>
-      <div class="row">
-        <select id="voice-select" title="选择语音音色"></select>
-        <button id="speak-btn">朗读</button>
-        <button id="stop-btn" class="secondary">停止</button>
+    <!-- 直播氛围层 -->
+    <div id="live-bar">
+      <span class="live-badge"><span class="live-dot"></span>直播中</span>
+      <span class="live-stat">👀 <b id="viewer-count">0</b> 在线</span>
+      <span class="live-stat">❤ <b id="like-count">0</b></span>
+    </div>
+    <div id="danmaku-layer"></div>
+    <div id="hearts-layer"></div>
+
+    <!-- 商品卡 -->
+    <div id="product-card">
+      <div id="product-thumbs"></div>
+      <div class="pc-body">
+        <div id="product-img"></div>
+        <div class="pc-info">
+          <div id="product-name"></div>
+          <div id="product-tags"></div>
+          <div class="pc-price">
+            <span id="product-price"></span>
+            <span id="product-origin"></span>
+          </div>
+          <div id="product-stock"></div>
+        </div>
       </div>
-      <div class="row">
-        <input id="speaker-input" type="text" placeholder="或粘贴音色 ID（覆盖上面下拉，可用全部音色）" />
+      <div class="pc-actions">
+        <div id="countdown">限时 <b>--:--</b></div>
+        <button id="explain-btn">🎤 讲解这件</button>
+        <button id="buy-btn">立即抢购</button>
       </div>
-      <div class="row">
-        <button id="wave-btn" class="secondary">挥手打招呼</button>
+    </div>
+
+    <!-- 下单提示 -->
+    <div id="buy-toast"></div>
+
+    <!-- 主播控制台（可折叠） -->
+    <div id="panel" class="collapsed">
+      <div id="panel-head">
+        <h1>主播控制台</h1>
+        <button id="panel-toggle" class="icon-btn" title="展开/收起">⚙</button>
       </div>
-      <p id="hint">提示：把一个 <code>.vrm</code> 文件拖进窗口即可替换形象。</p>
-      <p id="status"></p>
+      <div id="panel-body">
+        <textarea id="text-input" rows="3" placeholder="输入要播报的文字…">大家好，欢迎来到我的直播间，今天给大家带来超多好物！</textarea>
+        <div class="row">
+          <select id="voice-select" title="选择语音音色"></select>
+          <button id="speak-btn">朗读</button>
+          <button id="stop-btn" class="secondary">停止</button>
+        </div>
+        <div class="row">
+          <input id="speaker-input" type="text" placeholder="或粘贴音色 ID（覆盖上面下拉，可用全部音色）" />
+        </div>
+        <p class="label">情绪表情</p>
+        <div class="row btn-grid">
+          <button class="secondary" data-emotion="happy">😊 笑</button>
+          <button class="secondary" data-emotion="surprised">😮 惊讶</button>
+          <button class="secondary" data-emotion="angry">😠 生气</button>
+          <button class="secondary" data-emotion="sad">😢 难过</button>
+          <button class="secondary" data-emotion="relaxed">😌 放松</button>
+        </div>
+        <p class="label">动作手势</p>
+        <div class="row btn-grid">
+          <button class="secondary" data-gesture="wave">👋 挥手</button>
+          <button class="secondary" data-gesture="nod">🙆 点头</button>
+          <button class="secondary" data-gesture="shake">🙅 摇头</button>
+          <button class="secondary" data-gesture="think">🤔 思考</button>
+          <button class="secondary" data-gesture="bow">🙇 鞠躬</button>
+          <button id="anim-btn" class="secondary" disabled>🎬 演示动作</button>
+        </div>
+        <p id="hint">提示：把 <code>.vrm</code> 拖进窗口换形象，把 <code>.vrma</code> 拖进来播动作。移动鼠标，她会看着你。</p>
+        <p id="status"></p>
+      </div>
     </div>
 
     <div id="drop-mask">松开鼠标，加载这个 .vrm 模型</div>

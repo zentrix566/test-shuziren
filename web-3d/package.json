@@ -9,10 +9,12 @@
     "dev:all": "concurrently -n web,api -c cyan,magenta \"vite\" \"node server.mjs\"",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
-    "fetch-model": "node scripts/fetch-model.mjs"
+    "fetch-model": "node scripts/fetch-model.mjs",
+    "fetch-anim": "node scripts/fetch-anim.mjs"
   },
   "dependencies": {
     "@pixiv/three-vrm": "^3.4.0",
+    "@pixiv/three-vrm-animation": "^3.5.4",
     "concurrently": "^10.0.3",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
